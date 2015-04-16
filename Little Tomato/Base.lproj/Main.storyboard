@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IIj-sI-WxC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="588"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="525"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view alpha="0.79999999999999982" contentMode="scaleToFill" id="cun-mN-sFY">

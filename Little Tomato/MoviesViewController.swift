@@ -109,7 +109,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = movies {
-            if (searchActive) {
+            if (searchActive && filtered.count > 0) {
                 return filtered.count
             } else {
                 return movies.count
@@ -124,7 +124,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         var movie = movies![indexPath.row]
      
-        if (searchActive) {
+        if (searchActive && filtered.count > 0) {
             movie = filtered[indexPath.row]
         }
         
@@ -159,7 +159,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         var movie: NSDictionary?
         
-        if (searchActive) {
+        if (searchActive && filtered.count > 0) {
             movie = filtered[indexPath.row]
         } else {
             movie = movies![indexPath.row]
@@ -168,6 +168,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movieDetailsViewController = segue.destinationViewController as! MovieDetailsViewController
         
         movieDetailsViewController.movie = movie
-        
+        searchActive = false
     }
 }

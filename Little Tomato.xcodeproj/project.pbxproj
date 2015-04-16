@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B0B8FF1EFBB01AAC62D8E8FB /* libPods-Little Tomato.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA98EC0D1DC072FC0A56579 /* libPods-Little Tomato.a */; };
+		F41F26041ADFABD200AA2212 /* rotten.png in Resources */ = {isa = PBXBuildFile; fileRef = F41F26031ADFABD200AA2212 /* rotten.png */; };
+		F41F26061ADFABF400AA2212 /* fresh.png in Resources */ = {isa = PBXBuildFile; fileRef = F41F26051ADFABF400AA2212 /* fresh.png */; };
 		F4F32C0C1ADF3FA0002D095E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F32C0B1ADF3FA0002D095E /* AppDelegate.swift */; };
 		F4F32C111ADF3FA0002D095E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F32C0F1ADF3FA0002D095E /* Main.storyboard */; };
 		F4F32C131ADF3FA0002D095E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F32C121ADF3FA0002D095E /* Images.xcassets */; };
@@ -32,6 +34,8 @@
 		2CC4594D14F90A70A1AFD8F6 /* Pods-Little Tomato.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Little Tomato.release.xcconfig"; path = "Pods/Target Support Files/Pods-Little Tomato/Pods-Little Tomato.release.xcconfig"; sourceTree = "<group>"; };
 		9DA98EC0D1DC072FC0A56579 /* libPods-Little Tomato.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Little Tomato.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD7D911F0BE5EFC42508F0A /* Pods-Little Tomato.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Little Tomato.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Little Tomato/Pods-Little Tomato.debug.xcconfig"; sourceTree = "<group>"; };
+		F41F26031ADFABD200AA2212 /* rotten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rotten.png; path = ../../../Desktop/rotten.png; sourceTree = "<group>"; };
+		F41F26051ADFABF400AA2212 /* fresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fresh.png; path = ../../../Desktop/fresh.png; sourceTree = "<group>"; };
 		F4F32C061ADF3FA0002D095E /* Little Tomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Tomato.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F32C0A1ADF3FA0002D095E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4F32C0B1ADF3FA0002D095E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		F4F32C1F1ADF3FA0002D095E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F41F26031ADFABD200AA2212 /* rotten.png */,
+				F41F26051ADFABF400AA2212 /* fresh.png */,
 				F4F32C201ADF3FA0002D095E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -252,6 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F41F26061ADFABF400AA2212 /* fresh.png in Resources */,
+				F41F26041ADFABD200AA2212 /* rotten.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

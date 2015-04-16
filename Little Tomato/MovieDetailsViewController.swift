@@ -28,7 +28,6 @@ class MovieDetailsViewController: UIViewController {
         
         imageView.setImageWithURL(url)
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

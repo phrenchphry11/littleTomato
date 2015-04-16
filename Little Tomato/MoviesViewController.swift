@@ -29,6 +29,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
         
+        var nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.Black // 37 111 18
+        nav?.tintColor = UIColor.whiteColor()
+        
     }
     
     func refresh(sender:AnyObject)
@@ -143,13 +147,25 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.posterView.setImageWithURL(url)
         
+        println(movie)
+        var rating = movie.valueForKeyPath("ratings.critics_rating") as! String
+        
+        if (rating == "Rotten") {
+            var rottenImage = "http://can.whatsnewonnetflix.com/assets/rt/rotten-faa167f02772878934fe1c643e768dc8.png"
+            var rottenUrl =  NSURL(string: rottenImage)
+            cell.rottenImageView.setImageWithURL(rottenUrl)
+        } else {
+            var freshImage = "http://can.whatsnewonnetflix.com/assets/rt/fresh-e8a12911901fa79aa8484a708bff4675.png"
+            var freshUrl =  NSURL(string: freshImage)
+            cell.rottenImageView.setImageWithURL(freshUrl)
+        }
+
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        searchActive = false
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -168,6 +184,5 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movieDetailsViewController = segue.destinationViewController as! MovieDetailsViewController
         
         movieDetailsViewController.movie = movie
-        searchActive = false
     }
 }

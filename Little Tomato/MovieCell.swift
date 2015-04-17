@@ -27,5 +27,7 @@ class MovieCell: UITableViewCell {
     
     @IBOutlet weak var rottenImageView: UIImageView!
     
+    @IBOutlet weak var movieRatingLabel: UILabel!
+    
     @IBOutlet weak var posterView: UIImageView!
 }

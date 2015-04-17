@@ -11,10 +11,10 @@ import UIKit
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var movieSearchBar: UISearchBar!
-
+    @IBOutlet weak var networkErrorView: UIView!
+    
     var refreshControl: UIRefreshControl!
     var movies: [NSDictionary]?
-    var movieTitles: [String]?
     var filtered: [NSDictionary] = []
     var searchActive: Bool = false
     
@@ -49,6 +49,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadAllMovies() {
+        
+        networkErrorView.hidden = true
+        
         let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=US")!
         
         let request = NSURLRequest(URL: url)
@@ -56,7 +59,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             
             if let error = error {
-                println("There has been a networking error. Try again")
+                self.networkErrorView.hidden = false
             }
             
             let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? NSDictionary
@@ -64,11 +67,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             if let json = json {
                 self.movies = json["movies"] as? [NSDictionary]
                 self.tableView.reloadData()
-                self.movieTitles = []
-                for movie:NSDictionary in self.movies! {
-                    var title = movie["title"] as! String
-                    self.movieTitles!.append(title)
-                }
             }
             
             SVProgressHUD.dismiss()
@@ -134,6 +132,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.titleLabel.text = movie["title"] as? String
         cell.synopsisLabel.text = movie["synopsis"] as? String
+        cell.movieRatingLabel.text = movie["mpaa_rating"] as? String
         
         var movieUrl = movie.valueForKeyPath("posters.thumbnail") as! String
         
@@ -147,7 +146,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.posterView.setImageWithURL(url)
         
-        println(movie)
         var rating = movie.valueForKeyPath("ratings.critics_rating") as! String
         
         if (rating == "Rotten") {
